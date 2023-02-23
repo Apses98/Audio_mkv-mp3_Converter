@@ -1,0 +1,17 @@
+C:\Users\Ahmad\source\repos\WindowsExtras\SoundFilesConverter\bin\Debug\net6.0-windows\SoundFilesConverter.exe
+C:\Users\Ahmad\source\repos\WindowsExtras\SoundFilesConverter\bin\Debug\net6.0-windows\SoundFilesConverter.deps.json
+C:\Users\Ahmad\source\repos\WindowsExtras\SoundFilesConverter\bin\Debug\net6.0-windows\SoundFilesConverter.runtimeconfig.json
+C:\Users\Ahmad\source\repos\WindowsExtras\SoundFilesConverter\bin\Debug\net6.0-windows\SoundFilesConverter.dll
+C:\Users\Ahmad\source\repos\WindowsExtras\SoundFilesConverter\bin\Debug\net6.0-windows\SoundFilesConverter.pdb
+C:\Users\Ahmad\source\repos\WindowsExtras\SoundFilesConverter\obj\Debug\net6.0-windows\SoundFilesConverter.csproj.AssemblyReference.cache
+C:\Users\Ahmad\source\repos\WindowsExtras\SoundFilesConverter\obj\Debug\net6.0-windows\SoundFilesConverter.Form1.resources
+C:\Users\Ahmad\source\repos\WindowsExtras\SoundFilesConverter\obj\Debug\net6.0-windows\SoundFilesConverter.csproj.GenerateResource.cache
+C:\Users\Ahmad\source\repos\WindowsExtras\SoundFilesConverter\obj\Debug\net6.0-windows\SoundFilesConverter.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ahmad\source\repos\WindowsExtras\SoundFilesConverter\obj\Debug\net6.0-windows\SoundFilesConverter.AssemblyInfoInputs.cache
+C:\Users\Ahmad\source\repos\WindowsExtras\SoundFilesConverter\obj\Debug\net6.0-windows\SoundFilesConverter.AssemblyInfo.cs
+C:\Users\Ahmad\source\repos\WindowsExtras\SoundFilesConverter\obj\Debug\net6.0-windows\SoundFilesConverter.csproj.CoreCompileInputs.cache
+C:\Users\Ahmad\source\repos\WindowsExtras\SoundFilesConverter\obj\Debug\net6.0-windows\SoundFilesConverter.dll
+C:\Users\Ahmad\source\repos\WindowsExtras\SoundFilesConverter\obj\Debug\net6.0-windows\refint\SoundFilesConverter.dll
+C:\Users\Ahmad\source\repos\WindowsExtras\SoundFilesConverter\obj\Debug\net6.0-windows\SoundFilesConverter.pdb
+C:\Users\Ahmad\source\repos\WindowsExtras\SoundFilesConverter\obj\Debug\net6.0-windows\SoundFilesConverter.genruntimeconfig.cache
+C:\Users\Ahmad\source\repos\WindowsExtras\SoundFilesConverter\obj\Debug\net6.0-windows\ref\SoundFilesConverter.dll
