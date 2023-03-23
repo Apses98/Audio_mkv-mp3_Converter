@@ -1,5 +1,8 @@
 using System.Diagnostics;
 using System.IO;
+using System.IO.Compression;
+using System.Net;
+
 
 namespace SoundFilesConverter
 {
@@ -11,6 +14,36 @@ namespace SoundFilesConverter
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void prog_init(object sender, EventArgs e)
+        {
+            check_ffmpeg();
+        }
+
+        void check_ffmpeg()
+        {
+            if (!File.Exists("ffmpeg\\ffmpeg-master-latest-win64-gpl\\ffmpeg-master-latest-win64-gpl\\bin\\ffmpeg.exe"))
+            {
+                string ffmpegDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ffmpeg");
+
+                if (!File.Exists(Path.Combine(ffmpegDirectory, "ffmpeg.exe")))
+                {
+                    Directory.CreateDirectory(ffmpegDirectory);
+
+                    string ffmpegZipPath = Path.Combine(ffmpegDirectory, "ffmpeg.zip");
+                    string ffmpegZipUrl = "https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-win64-gpl.zip";
+                    MessageBox.Show("Downloading some important files!\nThe program will open soon.\nPlease Wait!");
+                    using (var client = new WebClient())
+                    {
+                        client.DownloadFile(ffmpegZipUrl, ffmpegZipPath);
+                    }
+
+                    ZipFile.ExtractToDirectory(ffmpegZipPath, ffmpegDirectory);
+                    File.Delete(ffmpegZipPath);
+                    
+                }
+            }
         }
 
         private void selectFolderButton_Click(object sender, EventArgs e)
@@ -139,7 +172,7 @@ namespace SoundFilesConverter
             string outputFile;
 
             // Path to the FFmpeg executable
-            string ffmpegPath = @"..\..\..\ffmpeg-master-latest-win64-gpl\ffmpeg-master-latest-win64-gpl\bin\ffmpeg.exe";
+            string ffmpegPath = @"ffmpeg\ffmpeg-master-latest-win64-gpl\ffmpeg-master-latest-win64-gpl\bin\ffmpeg.exe";
 
             
 
@@ -180,5 +213,7 @@ namespace SoundFilesConverter
             updateProgressBar(0);
             infoListBox.Items.Add($"Done!!!");
         }
+
+       
     }
 }

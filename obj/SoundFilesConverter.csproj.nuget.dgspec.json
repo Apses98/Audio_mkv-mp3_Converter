@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ahmad\\source\\repos\\WindowsExtras\\SoundFilesConverter\\SoundFilesConverter.csproj": {}
+    "C:\\Users\\Ahmad\\source\\repos\\WindowsExtras\\SoundFilesConverter\\Audio_mkv-mp3_Converter\\SoundFilesConverter.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ahmad\\source\\repos\\WindowsExtras\\SoundFilesConverter\\SoundFilesConverter.csproj": {
+    "C:\\Users\\Ahmad\\source\\repos\\WindowsExtras\\SoundFilesConverter\\Audio_mkv-mp3_Converter\\SoundFilesConverter.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ahmad\\source\\repos\\WindowsExtras\\SoundFilesConverter\\SoundFilesConverter.csproj",
+        "projectUniqueName": "C:\\Users\\Ahmad\\source\\repos\\WindowsExtras\\SoundFilesConverter\\Audio_mkv-mp3_Converter\\SoundFilesConverter.csproj",
         "projectName": "SoundFilesConverter",
-        "projectPath": "C:\\Users\\Ahmad\\source\\repos\\WindowsExtras\\SoundFilesConverter\\SoundFilesConverter.csproj",
+        "projectPath": "C:\\Users\\Ahmad\\source\\repos\\WindowsExtras\\SoundFilesConverter\\Audio_mkv-mp3_Converter\\SoundFilesConverter.csproj",
         "packagesPath": "C:\\Users\\Ahmad\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ahmad\\source\\repos\\WindowsExtras\\SoundFilesConverter\\obj\\",
+        "outputPath": "C:\\Users\\Ahmad\\source\\repos\\WindowsExtras\\SoundFilesConverter\\Audio_mkv-mp3_Converter\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
