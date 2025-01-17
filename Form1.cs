@@ -22,6 +22,7 @@ namespace SoundFilesConverter
         {
             
             _ = check_ffmpeg();
+            _ = check_yt_dlp();
         }
 
         static async Task check_ffmpeg()
@@ -79,6 +80,62 @@ namespace SoundFilesConverter
             }
         }
 
+
+        static async Task check_yt_dlp()
+        {
+            if (!File.Exists("yt_dlp\\yt-dlp.exe"))
+            {
+
+
+                string yt_dlpDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "yt-dlp");
+
+                if (!File.Exists(Path.Combine(yt_dlpDirectory, "yt-dlp.exe")))
+                {
+                    Directory.CreateDirectory(yt_dlpDirectory);
+
+                    string yt_dlpPath = Path.Combine(yt_dlpDirectory, "yt-dlp.exe");
+                    //string ffmpegZipUrl = "https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-win64-gpl.zip";
+                    string yt_dlpUrl = "https://github.com/yt-dlp/yt-dlp/releases/download/2025.01.15/yt-dlp.exe";
+                    //MessageBox.Show("Please wait...\nDownloading ffmpeg (It is needed to convert you files!)\nThe program will open soon, You don't need to reopen it.");
+
+                    /**
+                    using (var client = new WebClient())
+                    {
+                        client.DownloadFile(ffmpegZipUrl, ffmpegZipPath);
+                    }
+
+                    
+                    **/
+                    try
+                    {
+                        using (HttpClient client = new HttpClient())
+                        {
+
+                            using (HttpResponseMessage response = await client.GetAsync(yt_dlpUrl, HttpCompletionOption.ResponseHeadersRead))
+                            {
+                                HttpResponseMessage httpResponseMessage = response.EnsureSuccessStatusCode();
+
+                                using (Stream contentStream = await response.Content.ReadAsStreamAsync(),
+                                               fileStream = new FileStream(yt_dlpPath, FileMode.Create, FileAccess.Write, FileShare.None, 8192, true))
+                                {
+                                    await contentStream.CopyToAsync(fileStream);
+                                }
+                            }
+                        }
+
+                        //ZipFile.ExtractToDirectory(ffmpegZipPath, ffmpegDirectory);
+                        //File.Delete(ffmpegZipPath);
+
+                    }
+                    catch (Exception)
+                    {
+
+                    }
+
+                }
+            }
+        }
+
         private void selectFolderButton_Click(object sender, EventArgs e)
         {
             selectFolder();
@@ -104,6 +161,10 @@ namespace SoundFilesConverter
             {
                 Abort = false;
             }
+            if (!Directory.Exists(dialog.SelectedPath))
+            {
+                return;
+            }
             infoListBox.Items.Clear();
             string[] getFiles = Directory.GetFiles(dialog.SelectedPath);
             for (int i = 0; i < getFiles.Length; i++)
@@ -119,6 +180,10 @@ namespace SoundFilesConverter
                 infoListBox.Items.Clear();
                 infoListBox.Items.Add($"No {getStartCheckbox()} files in this file, try another one!");
                 return;
+            }
+            else
+            {
+                convertButton.Enabled = true;
             }
 
 
@@ -171,7 +236,14 @@ namespace SoundFilesConverter
 
         private void convertButton_Click(object sender, EventArgs e)
         {
-            convertFiles();
+            if (!File.Exists("ffmpeg\\ffmpeg-master-latest-win64-lgpl-shared\\bin\\ffmpeg.exe"))
+            {
+                MessageBox.Show("We are downloading some important files!\nPlease try again in a minute!");
+            } else
+            {
+                convertFiles();
+            }
+                
         }
 
         void updateProgressBar(int current_item)
@@ -205,7 +277,7 @@ namespace SoundFilesConverter
             string outputFile;
 
             // Path to the FFmpeg executable
-            string ffmpegPath = @"ffmpeg\ffmpeg-master-latest-win64-gpl\ffmpeg-master-latest-win64-gpl\bin\ffmpeg.exe";
+            string ffmpegPath = @"ffmpeg\ffmpeg-master-latest-win64-lgpl-shared\bin\ffmpeg.exe";
 
             
 
@@ -215,8 +287,8 @@ namespace SoundFilesConverter
             
             process.StartInfo.UseShellExecute = false;
             process.StartInfo.RedirectStandardOutput = true;
+            process.StartInfo.CreateNoWindow = true;
 
-            
             infoListBox.Items.Clear();
             for (int i = 0; i < files.Count; i++)
             {

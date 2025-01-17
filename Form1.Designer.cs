@@ -143,6 +143,7 @@
             // convertButton
             // 
             convertButton.Dock = DockStyle.Fill;
+            convertButton.Enabled = false;
             convertButton.Location = new Point(0, 0);
             convertButton.Name = "convertButton";
             convertButton.Size = new Size(279, 246);
