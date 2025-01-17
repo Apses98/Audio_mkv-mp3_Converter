@@ -41,6 +41,23 @@
             splitContainer5 = new SplitContainer();
             splitContainer6 = new SplitContainer();
             splitContainer7 = new SplitContainer();
+            tabControl = new TabControl();
+            conversionTab = new TabPage();
+            downloadingTab = new TabPage();
+            splitContainer1 = new SplitContainer();
+            splitContainer2 = new SplitContainer();
+            selectDownloadPathButton = new Button();
+            downloadPathLabel = new Label();
+            Somelabel = new Label();
+            splitContainer3 = new SplitContainer();
+            splitContainer8 = new SplitContainer();
+            addYoutubeVideoLinkButton = new Button();
+            youtubeVideoLinkTextbox = new TextBox();
+            splitContainer9 = new SplitContainer();
+            youtubeLinksListbox = new ListBox();
+            splitContainer10 = new SplitContainer();
+            downloadButton = new Button();
+            progressBar1 = new ProgressBar();
             toGroupbox.SuspendLayout();
             fromGroupbox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer4).BeginInit();
@@ -59,6 +76,33 @@
             splitContainer7.Panel1.SuspendLayout();
             splitContainer7.Panel2.SuspendLayout();
             splitContainer7.SuspendLayout();
+            tabControl.SuspendLayout();
+            conversionTab.SuspendLayout();
+            downloadingTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
+            splitContainer1.Panel1.SuspendLayout();
+            splitContainer1.Panel2.SuspendLayout();
+            splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)splitContainer2).BeginInit();
+            splitContainer2.Panel1.SuspendLayout();
+            splitContainer2.Panel2.SuspendLayout();
+            splitContainer2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)splitContainer3).BeginInit();
+            splitContainer3.Panel1.SuspendLayout();
+            splitContainer3.Panel2.SuspendLayout();
+            splitContainer3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)splitContainer8).BeginInit();
+            splitContainer8.Panel1.SuspendLayout();
+            splitContainer8.Panel2.SuspendLayout();
+            splitContainer8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)splitContainer9).BeginInit();
+            splitContainer9.Panel1.SuspendLayout();
+            splitContainer9.Panel2.SuspendLayout();
+            splitContainer9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)splitContainer10).BeginInit();
+            splitContainer10.Panel1.SuspendLayout();
+            splitContainer10.Panel2.SuspendLayout();
+            splitContainer10.SuspendLayout();
             SuspendLayout();
             // 
             // selectFolderButton
@@ -66,7 +110,7 @@
             selectFolderButton.Dock = DockStyle.Fill;
             selectFolderButton.Location = new Point(0, 0);
             selectFolderButton.Name = "selectFolderButton";
-            selectFolderButton.Size = new Size(275, 237);
+            selectFolderButton.Size = new Size(270, 220);
             selectFolderButton.TabIndex = 0;
             selectFolderButton.Text = "Select Folder";
             selectFolderButton.UseVisualStyleBackColor = true;
@@ -79,7 +123,7 @@
             toGroupbox.Dock = DockStyle.Fill;
             toGroupbox.Location = new Point(0, 0);
             toGroupbox.Name = "toGroupbox";
-            toGroupbox.Size = new Size(303, 237);
+            toGroupbox.Size = new Size(300, 220);
             toGroupbox.TabIndex = 1;
             toGroupbox.TabStop = false;
             toGroupbox.Text = "Convert to";
@@ -113,7 +157,7 @@
             fromGroupbox.Dock = DockStyle.Fill;
             fromGroupbox.Location = new Point(0, 0);
             fromGroupbox.Name = "fromGroupbox";
-            fromGroupbox.Size = new Size(251, 237);
+            fromGroupbox.Size = new Size(245, 220);
             fromGroupbox.TabIndex = 0;
             fromGroupbox.TabStop = false;
             fromGroupbox.Text = "Convert From";
@@ -146,7 +190,7 @@
             convertButton.Enabled = false;
             convertButton.Location = new Point(0, 0);
             convertButton.Name = "convertButton";
-            convertButton.Size = new Size(279, 246);
+            convertButton.Size = new Size(274, 229);
             convertButton.TabIndex = 0;
             convertButton.Text = "Convert";
             convertButton.UseVisualStyleBackColor = true;
@@ -159,13 +203,13 @@
             infoListBox.ItemHeight = 15;
             infoListBox.Location = new Point(0, 0);
             infoListBox.Name = "infoListBox";
-            infoListBox.Size = new Size(554, 246);
+            infoListBox.Size = new Size(545, 229);
             infoListBox.TabIndex = 0;
             // 
             // splitContainer4
             // 
             splitContainer4.Dock = DockStyle.Fill;
-            splitContainer4.Location = new Point(0, 0);
+            splitContainer4.Location = new Point(3, 3);
             splitContainer4.Margin = new Padding(2);
             splitContainer4.Name = "splitContainer4";
             splitContainer4.Orientation = Orientation.Horizontal;
@@ -177,8 +221,8 @@
             // splitContainer4.Panel2
             // 
             splitContainer4.Panel2.Controls.Add(splitContainer7);
-            splitContainer4.Size = new Size(837, 486);
-            splitContainer4.SplitterDistance = 237;
+            splitContainer4.Size = new Size(823, 452);
+            splitContainer4.SplitterDistance = 220;
             splitContainer4.SplitterWidth = 3;
             splitContainer4.TabIndex = 1;
             // 
@@ -195,8 +239,8 @@
             // splitContainer5.Panel2
             // 
             splitContainer5.Panel2.Controls.Add(splitContainer6);
-            splitContainer5.Size = new Size(837, 237);
-            splitContainer5.SplitterDistance = 275;
+            splitContainer5.Size = new Size(823, 220);
+            splitContainer5.SplitterDistance = 270;
             splitContainer5.TabIndex = 0;
             // 
             // splitContainer6
@@ -212,8 +256,8 @@
             // splitContainer6.Panel2
             // 
             splitContainer6.Panel2.Controls.Add(toGroupbox);
-            splitContainer6.Size = new Size(558, 237);
-            splitContainer6.SplitterDistance = 251;
+            splitContainer6.Size = new Size(549, 220);
+            splitContainer6.SplitterDistance = 245;
             splitContainer6.TabIndex = 0;
             // 
             // splitContainer7
@@ -229,16 +273,233 @@
             // splitContainer7.Panel2
             // 
             splitContainer7.Panel2.Controls.Add(infoListBox);
-            splitContainer7.Size = new Size(837, 246);
-            splitContainer7.SplitterDistance = 279;
+            splitContainer7.Size = new Size(823, 229);
+            splitContainer7.SplitterDistance = 274;
             splitContainer7.TabIndex = 0;
+            // 
+            // tabControl
+            // 
+            tabControl.Controls.Add(conversionTab);
+            tabControl.Controls.Add(downloadingTab);
+            tabControl.Dock = DockStyle.Fill;
+            tabControl.Location = new Point(0, 0);
+            tabControl.Name = "tabControl";
+            tabControl.SelectedIndex = 0;
+            tabControl.Size = new Size(837, 486);
+            tabControl.TabIndex = 2;
+            // 
+            // conversionTab
+            // 
+            conversionTab.Controls.Add(splitContainer4);
+            conversionTab.Location = new Point(4, 24);
+            conversionTab.Name = "conversionTab";
+            conversionTab.Padding = new Padding(3);
+            conversionTab.Size = new Size(829, 458);
+            conversionTab.TabIndex = 0;
+            conversionTab.Text = "Converter";
+            conversionTab.UseVisualStyleBackColor = true;
+            // 
+            // downloadingTab
+            // 
+            downloadingTab.Controls.Add(splitContainer1);
+            downloadingTab.Location = new Point(4, 24);
+            downloadingTab.Name = "downloadingTab";
+            downloadingTab.Padding = new Padding(3);
+            downloadingTab.Size = new Size(829, 458);
+            downloadingTab.TabIndex = 1;
+            downloadingTab.Text = "YT Downloader";
+            downloadingTab.UseVisualStyleBackColor = true;
+            // 
+            // splitContainer1
+            // 
+            splitContainer1.Dock = DockStyle.Fill;
+            splitContainer1.Location = new Point(3, 3);
+            splitContainer1.Name = "splitContainer1";
+            splitContainer1.Orientation = Orientation.Horizontal;
+            // 
+            // splitContainer1.Panel1
+            // 
+            splitContainer1.Panel1.Controls.Add(splitContainer2);
+            // 
+            // splitContainer1.Panel2
+            // 
+            splitContainer1.Panel2.Controls.Add(splitContainer3);
+            splitContainer1.Size = new Size(823, 452);
+            splitContainer1.SplitterDistance = 62;
+            splitContainer1.TabIndex = 0;
+            // 
+            // splitContainer2
+            // 
+            splitContainer2.Dock = DockStyle.Fill;
+            splitContainer2.Location = new Point(0, 0);
+            splitContainer2.Name = "splitContainer2";
+            // 
+            // splitContainer2.Panel1
+            // 
+            splitContainer2.Panel1.Controls.Add(selectDownloadPathButton);
+            // 
+            // splitContainer2.Panel2
+            // 
+            splitContainer2.Panel2.Controls.Add(downloadPathLabel);
+            splitContainer2.Panel2.Controls.Add(Somelabel);
+            splitContainer2.Size = new Size(823, 62);
+            splitContainer2.SplitterDistance = 274;
+            splitContainer2.TabIndex = 0;
+            // 
+            // selectDownloadPathButton
+            // 
+            selectDownloadPathButton.Dock = DockStyle.Fill;
+            selectDownloadPathButton.Location = new Point(0, 0);
+            selectDownloadPathButton.Name = "selectDownloadPathButton";
+            selectDownloadPathButton.Size = new Size(274, 62);
+            selectDownloadPathButton.TabIndex = 0;
+            selectDownloadPathButton.Text = "Change download path";
+            selectDownloadPathButton.UseVisualStyleBackColor = true;
+            selectDownloadPathButton.Click += selectDownloadPathButton_Click;
+            // 
+            // downloadPathLabel
+            // 
+            downloadPathLabel.Location = new Point(3, 24);
+            downloadPathLabel.Name = "downloadPathLabel";
+            downloadPathLabel.Size = new Size(539, 38);
+            downloadPathLabel.TabIndex = 1;
+            downloadPathLabel.Text = "label1";
+            // 
+            // Somelabel
+            // 
+            Somelabel.AutoSize = true;
+            Somelabel.Dock = DockStyle.Top;
+            Somelabel.Location = new Point(0, 0);
+            Somelabel.Name = "Somelabel";
+            Somelabel.Size = new Size(117, 15);
+            Somelabel.TabIndex = 0;
+            Somelabel.Text = "Files will be saved to:";
+            // 
+            // splitContainer3
+            // 
+            splitContainer3.Dock = DockStyle.Fill;
+            splitContainer3.Location = new Point(0, 0);
+            splitContainer3.Name = "splitContainer3";
+            splitContainer3.Orientation = Orientation.Horizontal;
+            // 
+            // splitContainer3.Panel1
+            // 
+            splitContainer3.Panel1.Controls.Add(splitContainer8);
+            // 
+            // splitContainer3.Panel2
+            // 
+            splitContainer3.Panel2.Controls.Add(splitContainer9);
+            splitContainer3.Size = new Size(823, 386);
+            splitContainer3.SplitterDistance = 76;
+            splitContainer3.TabIndex = 0;
+            // 
+            // splitContainer8
+            // 
+            splitContainer8.Dock = DockStyle.Fill;
+            splitContainer8.Location = new Point(0, 0);
+            splitContainer8.Name = "splitContainer8";
+            // 
+            // splitContainer8.Panel1
+            // 
+            splitContainer8.Panel1.Controls.Add(addYoutubeVideoLinkButton);
+            // 
+            // splitContainer8.Panel2
+            // 
+            splitContainer8.Panel2.Controls.Add(youtubeVideoLinkTextbox);
+            splitContainer8.Size = new Size(823, 76);
+            splitContainer8.SplitterDistance = 274;
+            splitContainer8.TabIndex = 0;
+            // 
+            // addYoutubeVideoLinkButton
+            // 
+            addYoutubeVideoLinkButton.Dock = DockStyle.Fill;
+            addYoutubeVideoLinkButton.Location = new Point(0, 0);
+            addYoutubeVideoLinkButton.Name = "addYoutubeVideoLinkButton";
+            addYoutubeVideoLinkButton.Size = new Size(274, 76);
+            addYoutubeVideoLinkButton.TabIndex = 0;
+            addYoutubeVideoLinkButton.Text = "Add video to List";
+            addYoutubeVideoLinkButton.UseVisualStyleBackColor = true;
+            addYoutubeVideoLinkButton.Click += addYoutubeVideoLinkButton_Click;
+            // 
+            // youtubeVideoLinkTextbox
+            // 
+            youtubeVideoLinkTextbox.Dock = DockStyle.Fill;
+            youtubeVideoLinkTextbox.Location = new Point(0, 0);
+            youtubeVideoLinkTextbox.Multiline = true;
+            youtubeVideoLinkTextbox.Name = "youtubeVideoLinkTextbox";
+            youtubeVideoLinkTextbox.Size = new Size(545, 76);
+            youtubeVideoLinkTextbox.TabIndex = 0;
+            // 
+            // splitContainer9
+            // 
+            splitContainer9.Dock = DockStyle.Fill;
+            splitContainer9.Location = new Point(0, 0);
+            splitContainer9.Name = "splitContainer9";
+            splitContainer9.Orientation = Orientation.Horizontal;
+            // 
+            // splitContainer9.Panel1
+            // 
+            splitContainer9.Panel1.Controls.Add(youtubeLinksListbox);
+            // 
+            // splitContainer9.Panel2
+            // 
+            splitContainer9.Panel2.Controls.Add(splitContainer10);
+            splitContainer9.Size = new Size(823, 306);
+            splitContainer9.SplitterDistance = 157;
+            splitContainer9.TabIndex = 0;
+            // 
+            // youtubeLinksListbox
+            // 
+            youtubeLinksListbox.Dock = DockStyle.Fill;
+            youtubeLinksListbox.FormattingEnabled = true;
+            youtubeLinksListbox.ItemHeight = 15;
+            youtubeLinksListbox.Location = new Point(0, 0);
+            youtubeLinksListbox.Name = "youtubeLinksListbox";
+            youtubeLinksListbox.Size = new Size(823, 157);
+            youtubeLinksListbox.TabIndex = 0;
+            // 
+            // splitContainer10
+            // 
+            splitContainer10.Dock = DockStyle.Fill;
+            splitContainer10.Location = new Point(0, 0);
+            splitContainer10.Name = "splitContainer10";
+            splitContainer10.Orientation = Orientation.Horizontal;
+            // 
+            // splitContainer10.Panel1
+            // 
+            splitContainer10.Panel1.Controls.Add(downloadButton);
+            // 
+            // splitContainer10.Panel2
+            // 
+            splitContainer10.Panel2.Controls.Add(progressBar1);
+            splitContainer10.Size = new Size(823, 145);
+            splitContainer10.SplitterDistance = 80;
+            splitContainer10.TabIndex = 0;
+            // 
+            // downloadButton
+            // 
+            downloadButton.Dock = DockStyle.Fill;
+            downloadButton.Location = new Point(0, 0);
+            downloadButton.Name = "downloadButton";
+            downloadButton.Size = new Size(823, 80);
+            downloadButton.TabIndex = 0;
+            downloadButton.Text = "Start Downloading";
+            downloadButton.UseVisualStyleBackColor = true;
+            // 
+            // progressBar1
+            // 
+            progressBar1.Dock = DockStyle.Fill;
+            progressBar1.Location = new Point(0, 0);
+            progressBar1.Name = "progressBar1";
+            progressBar1.Size = new Size(823, 61);
+            progressBar1.TabIndex = 0;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(837, 486);
-            Controls.Add(splitContainer4);
+            Controls.Add(tabControl);
             MaximizeBox = false;
             MaximumSize = new Size(853, 525);
             MinimizeBox = false;
@@ -266,6 +527,35 @@
             splitContainer7.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer7).EndInit();
             splitContainer7.ResumeLayout(false);
+            tabControl.ResumeLayout(false);
+            conversionTab.ResumeLayout(false);
+            downloadingTab.ResumeLayout(false);
+            splitContainer1.Panel1.ResumeLayout(false);
+            splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
+            splitContainer1.ResumeLayout(false);
+            splitContainer2.Panel1.ResumeLayout(false);
+            splitContainer2.Panel2.ResumeLayout(false);
+            splitContainer2.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)splitContainer2).EndInit();
+            splitContainer2.ResumeLayout(false);
+            splitContainer3.Panel1.ResumeLayout(false);
+            splitContainer3.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)splitContainer3).EndInit();
+            splitContainer3.ResumeLayout(false);
+            splitContainer8.Panel1.ResumeLayout(false);
+            splitContainer8.Panel2.ResumeLayout(false);
+            splitContainer8.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)splitContainer8).EndInit();
+            splitContainer8.ResumeLayout(false);
+            splitContainer9.Panel1.ResumeLayout(false);
+            splitContainer9.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)splitContainer9).EndInit();
+            splitContainer9.ResumeLayout(false);
+            splitContainer10.Panel1.ResumeLayout(false);
+            splitContainer10.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)splitContainer10).EndInit();
+            splitContainer10.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -283,5 +573,22 @@
         private SplitContainer splitContainer5;
         private SplitContainer splitContainer6;
         private SplitContainer splitContainer7;
+        private TabControl tabControl;
+        private TabPage conversionTab;
+        private TabPage downloadingTab;
+        private SplitContainer splitContainer1;
+        private SplitContainer splitContainer2;
+        private Button selectDownloadPathButton;
+        private Label Somelabel;
+        private Label downloadPathLabel;
+        private SplitContainer splitContainer3;
+        private SplitContainer splitContainer8;
+        private Button addYoutubeVideoLinkButton;
+        private TextBox youtubeVideoLinkTextbox;
+        private SplitContainer splitContainer9;
+        private ListBox youtubeLinksListbox;
+        private SplitContainer splitContainer10;
+        private Button downloadButton;
+        private ProgressBar progressBar1;
     }
 }

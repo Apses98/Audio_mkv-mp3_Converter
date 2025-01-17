@@ -20,17 +20,23 @@ namespace SoundFilesConverter
 
         private void prog_init(object sender, EventArgs e)
         {
-            
+
             _ = check_ffmpeg();
             _ = check_yt_dlp();
+            selectDefaultDownloadPath();
+        }
+
+        private void selectDefaultDownloadPath()
+        {
+            downloadPathLabel.Text = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "downloaded");
         }
 
         static async Task check_ffmpeg()
         {
             if (!File.Exists("ffmpeg\\ffmpeg-master-latest-win64-lgpl-shared\\bin\\ffmpeg.exe"))
             {
-                
-                
+
+
                 string ffmpegDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ffmpeg");
 
                 if (!File.Exists(Path.Combine(ffmpegDirectory, "ffmpeg.exe")))
@@ -54,10 +60,10 @@ namespace SoundFilesConverter
                     {
                         using (HttpClient client = new HttpClient())
                         {
-                            
+
                             using (HttpResponseMessage response = await client.GetAsync(ffmpegZipUrl, HttpCompletionOption.ResponseHeadersRead))
                             {
-                                HttpResponseMessage httpResponseMessage = response.EnsureSuccessStatusCode(); 
+                                HttpResponseMessage httpResponseMessage = response.EnsureSuccessStatusCode();
 
                                 using (Stream contentStream = await response.Content.ReadAsStreamAsync(),
                                                fileStream = new FileStream(ffmpegZipPath, FileMode.Create, FileAccess.Write, FileShare.None, 8192, true))
@@ -73,9 +79,9 @@ namespace SoundFilesConverter
                     }
                     catch (Exception)
                     {
-                        
+
                     }
-                    
+
                 }
             }
         }
@@ -142,13 +148,8 @@ namespace SoundFilesConverter
         }
 
 
-
-
-
         private void selectFolder()
         {
-
-
 
             if (!isCheckboxSelected())
                 return;
@@ -212,7 +213,7 @@ namespace SoundFilesConverter
             {
                 return "." + fromMKV.Text.ToLower();
             }
-            else if(fromMP3.Checked)
+            else if (fromMP3.Checked)
             {
                 return "." + fromMP3.Text.ToLower();
             }
@@ -227,7 +228,8 @@ namespace SoundFilesConverter
             if ((fromMKV.Checked || fromMP3.Checked) && (toMKV.Checked || toMP3.Checked))
             {
                 return true;
-            }else
+            }
+            else
             {
                 MessageBox.Show("Please select a file type!");
                 return false;
@@ -239,16 +241,17 @@ namespace SoundFilesConverter
             if (!File.Exists("ffmpeg\\ffmpeg-master-latest-win64-lgpl-shared\\bin\\ffmpeg.exe"))
             {
                 MessageBox.Show("We are downloading some important files!\nPlease try again in a minute!");
-            } else
+            }
+            else
             {
                 convertFiles();
             }
-                
+
         }
 
         void updateProgressBar(int current_item)
         {
-            int progress = (current_item * 100) / files.Count ;
+            int progress = (current_item * 100) / files.Count;
             //progressBar.Value = progress;
         }
 
@@ -279,12 +282,12 @@ namespace SoundFilesConverter
             // Path to the FFmpeg executable
             string ffmpegPath = @"ffmpeg\ffmpeg-master-latest-win64-lgpl-shared\bin\ffmpeg.exe";
 
-            
+
 
             // Set up FFmpeg process
             Process process = new Process();
             process.StartInfo.FileName = ffmpegPath;
-            
+
             process.StartInfo.UseShellExecute = false;
             process.StartInfo.RedirectStandardOutput = true;
             process.StartInfo.CreateNoWindow = true;
@@ -303,7 +306,8 @@ namespace SoundFilesConverter
                 {
                     outputFile += ".mp3";
                     process.StartInfo.Arguments = $"-i \"{files.ElementAt(i)}\" -vn -ar 44100 -ac 2 -ab 192k -f mp3 \"{outputFile}\"";
-                } else if (getStartCheckbox() == ".mp3" && getEndCheckbox() == ".mkv")
+                }
+                else if (getStartCheckbox() == ".mp3" && getEndCheckbox() == ".mkv")
                 {
                     outputFile += ".mkv";
                     process.StartInfo.Arguments = $"-i \"{files.ElementAt(i)}\" -vn -ar 44100 -ac 2 \"{outputFile}\"";
@@ -319,6 +323,50 @@ namespace SoundFilesConverter
             infoListBox.Items.Add($"Done!!!");
         }
 
-       
+        private void selectDownloadPathButton_Click(object sender, EventArgs e)
+        {
+            if (dialog.ShowDialog() != DialogResult.OK)
+            {
+                Abort = true;
+                return;
+            }
+            else
+            {
+                Abort = false;
+            }
+            if (!Directory.Exists(dialog.SelectedPath))
+            {
+                return;
+            }
+            else
+            {
+                downloadPathLabel.Text = dialog.SelectedPath;
+            }
+        }
+
+        private void addYoutubeVideoLinkButton_Click(object sender, EventArgs e)
+        {
+            if (!check_youtubeLink())
+            {
+                MessageBox.Show("We expect the youtube url to be in the following format:\nhttps://www.youtube.com/watch?v=video_ID\nor\nwww.youtube.com/watch?v=video_ID");
+            }else
+            {
+                youtubeLinksListbox.Items.Add(youtubeVideoLinkTextbox.Text);
+                youtubeVideoLinkTextbox.Text = "";
+            }
+        }
+
+        private bool check_youtubeLink()
+        {
+            if(youtubeVideoLinkTextbox.Text.StartsWith("www.youtube.com/watch?v=") || youtubeVideoLinkTextbox.Text.StartsWith("https://www.youtube.com/watch?v="))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            
+        }
     }
 }
