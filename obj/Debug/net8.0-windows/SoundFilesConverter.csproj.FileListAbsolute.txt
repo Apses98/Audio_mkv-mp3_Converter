@@ -1,0 +1,17 @@
+C:\Users\Ahmad\source\repos\Apses98\Audio_mkv-mp3_Converter\bin\Debug\net8.0-windows\SoundFilesConverter.exe
+C:\Users\Ahmad\source\repos\Apses98\Audio_mkv-mp3_Converter\bin\Debug\net8.0-windows\SoundFilesConverter.deps.json
+C:\Users\Ahmad\source\repos\Apses98\Audio_mkv-mp3_Converter\bin\Debug\net8.0-windows\SoundFilesConverter.runtimeconfig.json
+C:\Users\Ahmad\source\repos\Apses98\Audio_mkv-mp3_Converter\bin\Debug\net8.0-windows\SoundFilesConverter.dll
+C:\Users\Ahmad\source\repos\Apses98\Audio_mkv-mp3_Converter\bin\Debug\net8.0-windows\SoundFilesConverter.pdb
+C:\Users\Ahmad\source\repos\Apses98\Audio_mkv-mp3_Converter\obj\Debug\net8.0-windows\SoundFilesConverter.Form1.resources
+C:\Users\Ahmad\source\repos\Apses98\Audio_mkv-mp3_Converter\obj\Debug\net8.0-windows\SoundFilesConverter.csproj.GenerateResource.cache
+C:\Users\Ahmad\source\repos\Apses98\Audio_mkv-mp3_Converter\obj\Debug\net8.0-windows\SoundFilesConverter.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ahmad\source\repos\Apses98\Audio_mkv-mp3_Converter\obj\Debug\net8.0-windows\SoundFilesConverter.AssemblyInfoInputs.cache
+C:\Users\Ahmad\source\repos\Apses98\Audio_mkv-mp3_Converter\obj\Debug\net8.0-windows\SoundFilesConverter.AssemblyInfo.cs
+C:\Users\Ahmad\source\repos\Apses98\Audio_mkv-mp3_Converter\obj\Debug\net8.0-windows\SoundFilesConverter.csproj.CoreCompileInputs.cache
+C:\Users\Ahmad\source\repos\Apses98\Audio_mkv-mp3_Converter\obj\Debug\net8.0-windows\SoundFilesConverter.sourcelink.json
+C:\Users\Ahmad\source\repos\Apses98\Audio_mkv-mp3_Converter\obj\Debug\net8.0-windows\SoundFilesConverter.dll
+C:\Users\Ahmad\source\repos\Apses98\Audio_mkv-mp3_Converter\obj\Debug\net8.0-windows\refint\SoundFilesConverter.dll
+C:\Users\Ahmad\source\repos\Apses98\Audio_mkv-mp3_Converter\obj\Debug\net8.0-windows\SoundFilesConverter.pdb
+C:\Users\Ahmad\source\repos\Apses98\Audio_mkv-mp3_Converter\obj\Debug\net8.0-windows\SoundFilesConverter.genruntimeconfig.cache
+C:\Users\Ahmad\source\repos\Apses98\Audio_mkv-mp3_Converter\obj\Debug\net8.0-windows\ref\SoundFilesConverter.dll

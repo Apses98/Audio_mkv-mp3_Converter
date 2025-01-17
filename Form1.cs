@@ -2,6 +2,8 @@ using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
 using System.Net;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 
 namespace SoundFilesConverter
@@ -18,13 +20,16 @@ namespace SoundFilesConverter
 
         private void prog_init(object sender, EventArgs e)
         {
-            check_ffmpeg();
+            
+            _ = check_ffmpeg();
         }
 
-        void check_ffmpeg()
+        static async Task check_ffmpeg()
         {
-            if (!File.Exists("ffmpeg\\ffmpeg-master-latest-win64-gpl\\ffmpeg-master-latest-win64-gpl\\bin\\ffmpeg.exe"))
+            if (!File.Exists("ffmpeg\\ffmpeg-master-latest-win64-lgpl-shared\\bin\\ffmpeg.exe"))
             {
+                
+                
                 string ffmpegDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ffmpeg");
 
                 if (!File.Exists(Path.Combine(ffmpegDirectory, "ffmpeg.exe")))
@@ -32,15 +37,43 @@ namespace SoundFilesConverter
                     Directory.CreateDirectory(ffmpegDirectory);
 
                     string ffmpegZipPath = Path.Combine(ffmpegDirectory, "ffmpeg.zip");
-                    string ffmpegZipUrl = "https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-win64-gpl.zip";
-                    MessageBox.Show("Downloading some important files!\nThe program will open soon.\nPlease Wait!");
+                    //string ffmpegZipUrl = "https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-win64-gpl.zip";
+                    string ffmpegZipUrl = "https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-win64-lgpl-shared.zip";
+                    //MessageBox.Show("Please wait...\nDownloading ffmpeg (It is needed to convert you files!)\nThe program will open soon, You don't need to reopen it.");
+
+                    /**
                     using (var client = new WebClient())
                     {
                         client.DownloadFile(ffmpegZipUrl, ffmpegZipPath);
                     }
 
-                    ZipFile.ExtractToDirectory(ffmpegZipPath, ffmpegDirectory);
-                    File.Delete(ffmpegZipPath);
+                    
+                    **/
+                    try
+                    {
+                        using (HttpClient client = new HttpClient())
+                        {
+                            
+                            using (HttpResponseMessage response = await client.GetAsync(ffmpegZipUrl, HttpCompletionOption.ResponseHeadersRead))
+                            {
+                                HttpResponseMessage httpResponseMessage = response.EnsureSuccessStatusCode(); 
+
+                                using (Stream contentStream = await response.Content.ReadAsStreamAsync(),
+                                               fileStream = new FileStream(ffmpegZipPath, FileMode.Create, FileAccess.Write, FileShare.None, 8192, true))
+                                {
+                                    await contentStream.CopyToAsync(fileStream);
+                                }
+                            }
+                        }
+
+                        ZipFile.ExtractToDirectory(ffmpegZipPath, ffmpegDirectory);
+                        File.Delete(ffmpegZipPath);
+
+                    }
+                    catch (Exception)
+                    {
+                        
+                    }
                     
                 }
             }
@@ -78,7 +111,7 @@ namespace SoundFilesConverter
                 if (getFiles[i].EndsWith(getStartCheckbox()) || getFiles[i].EndsWith(getStartCheckbox().ToUpper()))
                 {
                     files.Add(getFiles[i]);
-                    infoListBox.Items.Add("File: " + getFiles[i].Split("\\").Last() + " Added to que.");
+                    infoListBox.Items.Add("File: " + getFiles[i].Split("\\").Last() + " Added to queue.");
                 }
             }
             if (files.Count == 0)
@@ -144,7 +177,7 @@ namespace SoundFilesConverter
         void updateProgressBar(int current_item)
         {
             int progress = (current_item * 100) / files.Count ;
-            progressBar.Value = progress;
+            //progressBar.Value = progress;
         }
 
         void convertFiles()

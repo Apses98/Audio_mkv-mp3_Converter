@@ -28,242 +28,247 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.selectFolderButton = new System.Windows.Forms.Button();
-            this.toGroupbox = new System.Windows.Forms.GroupBox();
-            this.toMP3 = new System.Windows.Forms.RadioButton();
-            this.toMKV = new System.Windows.Forms.RadioButton();
-            this.fromGroupbox = new System.Windows.Forms.GroupBox();
-            this.fromMP3 = new System.Windows.Forms.RadioButton();
-            this.fromMKV = new System.Windows.Forms.RadioButton();
-            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
-            this.convertButton = new System.Windows.Forms.Button();
-            this.progressBar = new System.Windows.Forms.ProgressBar();
-            this.infoListBox = new System.Windows.Forms.ListBox();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.Panel2.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
-            this.splitContainer2.Panel1.SuspendLayout();
-            this.splitContainer2.Panel2.SuspendLayout();
-            this.splitContainer2.SuspendLayout();
-            this.toGroupbox.SuspendLayout();
-            this.fromGroupbox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
-            this.splitContainer3.Panel1.SuspendLayout();
-            this.splitContainer3.Panel2.SuspendLayout();
-            this.splitContainer3.SuspendLayout();
-            this.SuspendLayout();
-            // 
-            // splitContainer1
-            // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.IsSplitterFixed = true;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Name = "splitContainer1";
-            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer1.Panel1
-            // 
-            this.splitContainer1.Panel1.Controls.Add(this.splitContainer2);
-            // 
-            // splitContainer1.Panel2
-            // 
-            this.splitContainer1.Panel2.Controls.Add(this.splitContainer3);
-            this.splitContainer1.Size = new System.Drawing.Size(822, 415);
-            this.splitContainer1.SplitterDistance = 197;
-            this.splitContainer1.TabIndex = 0;
-            // 
-            // splitContainer2
-            // 
-            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer2.IsSplitterFixed = true;
-            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer2.Name = "splitContainer2";
-            // 
-            // splitContainer2.Panel1
-            // 
-            this.splitContainer2.Panel1.Controls.Add(this.selectFolderButton);
-            // 
-            // splitContainer2.Panel2
-            // 
-            this.splitContainer2.Panel2.Controls.Add(this.toGroupbox);
-            this.splitContainer2.Panel2.Controls.Add(this.fromGroupbox);
-            this.splitContainer2.Size = new System.Drawing.Size(822, 197);
-            this.splitContainer2.SplitterDistance = 219;
-            this.splitContainer2.TabIndex = 0;
+            selectFolderButton = new Button();
+            toGroupbox = new GroupBox();
+            toMP3 = new RadioButton();
+            toMKV = new RadioButton();
+            fromGroupbox = new GroupBox();
+            fromMP3 = new RadioButton();
+            fromMKV = new RadioButton();
+            convertButton = new Button();
+            infoListBox = new ListBox();
+            splitContainer4 = new SplitContainer();
+            splitContainer5 = new SplitContainer();
+            splitContainer6 = new SplitContainer();
+            splitContainer7 = new SplitContainer();
+            toGroupbox.SuspendLayout();
+            fromGroupbox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)splitContainer4).BeginInit();
+            splitContainer4.Panel1.SuspendLayout();
+            splitContainer4.Panel2.SuspendLayout();
+            splitContainer4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)splitContainer5).BeginInit();
+            splitContainer5.Panel1.SuspendLayout();
+            splitContainer5.Panel2.SuspendLayout();
+            splitContainer5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)splitContainer6).BeginInit();
+            splitContainer6.Panel1.SuspendLayout();
+            splitContainer6.Panel2.SuspendLayout();
+            splitContainer6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)splitContainer7).BeginInit();
+            splitContainer7.Panel1.SuspendLayout();
+            splitContainer7.Panel2.SuspendLayout();
+            splitContainer7.SuspendLayout();
+            SuspendLayout();
             // 
             // selectFolderButton
             // 
-            this.selectFolderButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.selectFolderButton.Location = new System.Drawing.Point(0, 0);
-            this.selectFolderButton.Name = "selectFolderButton";
-            this.selectFolderButton.Size = new System.Drawing.Size(219, 197);
-            this.selectFolderButton.TabIndex = 0;
-            this.selectFolderButton.Text = "Select Folder";
-            this.selectFolderButton.UseVisualStyleBackColor = true;
-            this.selectFolderButton.Click += new System.EventHandler(this.selectFolderButton_Click);
+            selectFolderButton.Dock = DockStyle.Fill;
+            selectFolderButton.Location = new Point(0, 0);
+            selectFolderButton.Name = "selectFolderButton";
+            selectFolderButton.Size = new Size(275, 237);
+            selectFolderButton.TabIndex = 0;
+            selectFolderButton.Text = "Select Folder";
+            selectFolderButton.UseVisualStyleBackColor = true;
+            selectFolderButton.Click += selectFolderButton_Click;
             // 
             // toGroupbox
             // 
-            this.toGroupbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.toGroupbox.Controls.Add(this.toMP3);
-            this.toGroupbox.Controls.Add(this.toMKV);
-            this.toGroupbox.Location = new System.Drawing.Point(3, 89);
-            this.toGroupbox.Name = "toGroupbox";
-            this.toGroupbox.Size = new System.Drawing.Size(584, 100);
-            this.toGroupbox.TabIndex = 1;
-            this.toGroupbox.TabStop = false;
-            this.toGroupbox.Text = "Convert to";
+            toGroupbox.Controls.Add(toMP3);
+            toGroupbox.Controls.Add(toMKV);
+            toGroupbox.Dock = DockStyle.Fill;
+            toGroupbox.Location = new Point(0, 0);
+            toGroupbox.Name = "toGroupbox";
+            toGroupbox.Size = new Size(303, 237);
+            toGroupbox.TabIndex = 1;
+            toGroupbox.TabStop = false;
+            toGroupbox.Text = "Convert to";
             // 
             // toMP3
             // 
-            this.toMP3.AutoSize = true;
-            this.toMP3.Location = new System.Drawing.Point(7, 47);
-            this.toMP3.Name = "toMP3";
-            this.toMP3.Size = new System.Drawing.Size(49, 19);
-            this.toMP3.TabIndex = 0;
-            this.toMP3.TabStop = true;
-            this.toMP3.Text = "MP3";
-            this.toMP3.UseVisualStyleBackColor = true;
+            toMP3.AutoSize = true;
+            toMP3.Location = new Point(7, 47);
+            toMP3.Name = "toMP3";
+            toMP3.Size = new Size(49, 19);
+            toMP3.TabIndex = 0;
+            toMP3.TabStop = true;
+            toMP3.Text = "MP3";
+            toMP3.UseVisualStyleBackColor = true;
             // 
             // toMKV
             // 
-            this.toMKV.AutoSize = true;
-            this.toMKV.Location = new System.Drawing.Point(7, 22);
-            this.toMKV.Name = "toMKV";
-            this.toMKV.Size = new System.Drawing.Size(50, 19);
-            this.toMKV.TabIndex = 0;
-            this.toMKV.TabStop = true;
-            this.toMKV.Text = "MKV";
-            this.toMKV.UseVisualStyleBackColor = true;
+            toMKV.AutoSize = true;
+            toMKV.Location = new Point(7, 22);
+            toMKV.Name = "toMKV";
+            toMKV.Size = new Size(50, 19);
+            toMKV.TabIndex = 0;
+            toMKV.TabStop = true;
+            toMKV.Text = "MKV";
+            toMKV.UseVisualStyleBackColor = true;
             // 
             // fromGroupbox
             // 
-            this.fromGroupbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.fromGroupbox.Controls.Add(this.fromMP3);
-            this.fromGroupbox.Controls.Add(this.fromMKV);
-            this.fromGroupbox.Location = new System.Drawing.Point(3, 3);
-            this.fromGroupbox.Name = "fromGroupbox";
-            this.fromGroupbox.Size = new System.Drawing.Size(584, 100);
-            this.fromGroupbox.TabIndex = 0;
-            this.fromGroupbox.TabStop = false;
-            this.fromGroupbox.Text = "Convert From";
+            fromGroupbox.Controls.Add(fromMP3);
+            fromGroupbox.Controls.Add(fromMKV);
+            fromGroupbox.Dock = DockStyle.Fill;
+            fromGroupbox.Location = new Point(0, 0);
+            fromGroupbox.Name = "fromGroupbox";
+            fromGroupbox.Size = new Size(251, 237);
+            fromGroupbox.TabIndex = 0;
+            fromGroupbox.TabStop = false;
+            fromGroupbox.Text = "Convert From";
             // 
             // fromMP3
             // 
-            this.fromMP3.AutoSize = true;
-            this.fromMP3.Location = new System.Drawing.Point(6, 47);
-            this.fromMP3.Name = "fromMP3";
-            this.fromMP3.Size = new System.Drawing.Size(49, 19);
-            this.fromMP3.TabIndex = 0;
-            this.fromMP3.TabStop = true;
-            this.fromMP3.Text = "MP3";
-            this.fromMP3.UseVisualStyleBackColor = true;
+            fromMP3.AutoSize = true;
+            fromMP3.Location = new Point(6, 47);
+            fromMP3.Name = "fromMP3";
+            fromMP3.Size = new Size(49, 19);
+            fromMP3.TabIndex = 0;
+            fromMP3.TabStop = true;
+            fromMP3.Text = "MP3";
+            fromMP3.UseVisualStyleBackColor = true;
             // 
             // fromMKV
             // 
-            this.fromMKV.AutoSize = true;
-            this.fromMKV.Location = new System.Drawing.Point(6, 22);
-            this.fromMKV.Name = "fromMKV";
-            this.fromMKV.Size = new System.Drawing.Size(50, 19);
-            this.fromMKV.TabIndex = 0;
-            this.fromMKV.TabStop = true;
-            this.fromMKV.Text = "MKV";
-            this.fromMKV.UseVisualStyleBackColor = true;
-            // 
-            // splitContainer3
-            // 
-            this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer3.IsSplitterFixed = true;
-            this.splitContainer3.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer3.Name = "splitContainer3";
-            // 
-            // splitContainer3.Panel1
-            // 
-            this.splitContainer3.Panel1.Controls.Add(this.convertButton);
-            // 
-            // splitContainer3.Panel2
-            // 
-            this.splitContainer3.Panel2.Controls.Add(this.progressBar);
-            this.splitContainer3.Panel2.Controls.Add(this.infoListBox);
-            this.splitContainer3.Size = new System.Drawing.Size(822, 214);
-            this.splitContainer3.SplitterDistance = 220;
-            this.splitContainer3.TabIndex = 0;
+            fromMKV.AutoSize = true;
+            fromMKV.Location = new Point(6, 22);
+            fromMKV.Name = "fromMKV";
+            fromMKV.Size = new Size(50, 19);
+            fromMKV.TabIndex = 0;
+            fromMKV.TabStop = true;
+            fromMKV.Text = "MKV";
+            fromMKV.UseVisualStyleBackColor = true;
             // 
             // convertButton
             // 
-            this.convertButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.convertButton.Location = new System.Drawing.Point(0, 0);
-            this.convertButton.Name = "convertButton";
-            this.convertButton.Size = new System.Drawing.Size(220, 214);
-            this.convertButton.TabIndex = 0;
-            this.convertButton.Text = "Convert";
-            this.convertButton.UseVisualStyleBackColor = true;
-            this.convertButton.Click += new System.EventHandler(this.convertButton_Click);
-            // 
-            // progressBar
-            // 
-            this.progressBar.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.progressBar.Location = new System.Drawing.Point(0, 190);
-            this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(598, 24);
-            this.progressBar.TabIndex = 1;
+            convertButton.Dock = DockStyle.Fill;
+            convertButton.Location = new Point(0, 0);
+            convertButton.Name = "convertButton";
+            convertButton.Size = new Size(279, 246);
+            convertButton.TabIndex = 0;
+            convertButton.Text = "Convert";
+            convertButton.UseVisualStyleBackColor = true;
+            convertButton.Click += convertButton_Click;
             // 
             // infoListBox
             // 
-            this.infoListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.infoListBox.FormattingEnabled = true;
-            this.infoListBox.ItemHeight = 15;
-            this.infoListBox.Location = new System.Drawing.Point(0, 0);
-            this.infoListBox.Name = "infoListBox";
-            this.infoListBox.Size = new System.Drawing.Size(598, 184);
-            this.infoListBox.TabIndex = 0;
+            infoListBox.Dock = DockStyle.Fill;
+            infoListBox.FormattingEnabled = true;
+            infoListBox.ItemHeight = 15;
+            infoListBox.Location = new Point(0, 0);
+            infoListBox.Name = "infoListBox";
+            infoListBox.Size = new Size(554, 246);
+            infoListBox.TabIndex = 0;
+            // 
+            // splitContainer4
+            // 
+            splitContainer4.Dock = DockStyle.Fill;
+            splitContainer4.Location = new Point(0, 0);
+            splitContainer4.Margin = new Padding(2);
+            splitContainer4.Name = "splitContainer4";
+            splitContainer4.Orientation = Orientation.Horizontal;
+            // 
+            // splitContainer4.Panel1
+            // 
+            splitContainer4.Panel1.Controls.Add(splitContainer5);
+            // 
+            // splitContainer4.Panel2
+            // 
+            splitContainer4.Panel2.Controls.Add(splitContainer7);
+            splitContainer4.Size = new Size(837, 486);
+            splitContainer4.SplitterDistance = 237;
+            splitContainer4.SplitterWidth = 3;
+            splitContainer4.TabIndex = 1;
+            // 
+            // splitContainer5
+            // 
+            splitContainer5.Dock = DockStyle.Fill;
+            splitContainer5.Location = new Point(0, 0);
+            splitContainer5.Name = "splitContainer5";
+            // 
+            // splitContainer5.Panel1
+            // 
+            splitContainer5.Panel1.Controls.Add(selectFolderButton);
+            // 
+            // splitContainer5.Panel2
+            // 
+            splitContainer5.Panel2.Controls.Add(splitContainer6);
+            splitContainer5.Size = new Size(837, 237);
+            splitContainer5.SplitterDistance = 275;
+            splitContainer5.TabIndex = 0;
+            // 
+            // splitContainer6
+            // 
+            splitContainer6.Dock = DockStyle.Fill;
+            splitContainer6.Location = new Point(0, 0);
+            splitContainer6.Name = "splitContainer6";
+            // 
+            // splitContainer6.Panel1
+            // 
+            splitContainer6.Panel1.Controls.Add(fromGroupbox);
+            // 
+            // splitContainer6.Panel2
+            // 
+            splitContainer6.Panel2.Controls.Add(toGroupbox);
+            splitContainer6.Size = new Size(558, 237);
+            splitContainer6.SplitterDistance = 251;
+            splitContainer6.TabIndex = 0;
+            // 
+            // splitContainer7
+            // 
+            splitContainer7.Dock = DockStyle.Fill;
+            splitContainer7.Location = new Point(0, 0);
+            splitContainer7.Name = "splitContainer7";
+            // 
+            // splitContainer7.Panel1
+            // 
+            splitContainer7.Panel1.Controls.Add(convertButton);
+            // 
+            // splitContainer7.Panel2
+            // 
+            splitContainer7.Panel2.Controls.Add(infoListBox);
+            splitContainer7.Size = new Size(837, 246);
+            splitContainer7.SplitterDistance = 279;
+            splitContainer7.TabIndex = 0;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(822, 415);
-            this.Controls.Add(this.splitContainer1);
-            this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(1100, 532);
-            this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(838, 454);
-            this.Name = "Form1";
-            this.Text = "Converter";
-            this.Load += new System.EventHandler(this.prog_init);
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
-            this.splitContainer2.Panel1.ResumeLayout(false);
-            this.splitContainer2.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
-            this.splitContainer2.ResumeLayout(false);
-            this.toGroupbox.ResumeLayout(false);
-            this.toGroupbox.PerformLayout();
-            this.fromGroupbox.ResumeLayout(false);
-            this.fromGroupbox.PerformLayout();
-            this.splitContainer3.Panel1.ResumeLayout(false);
-            this.splitContainer3.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
-            this.splitContainer3.ResumeLayout(false);
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(837, 486);
+            Controls.Add(splitContainer4);
+            MaximizeBox = false;
+            MaximumSize = new Size(853, 525);
+            MinimizeBox = false;
+            MinimumSize = new Size(853, 525);
+            Name = "Form1";
+            Text = "Converter";
+            Load += prog_init;
+            toGroupbox.ResumeLayout(false);
+            toGroupbox.PerformLayout();
+            fromGroupbox.ResumeLayout(false);
+            fromGroupbox.PerformLayout();
+            splitContainer4.Panel1.ResumeLayout(false);
+            splitContainer4.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)splitContainer4).EndInit();
+            splitContainer4.ResumeLayout(false);
+            splitContainer5.Panel1.ResumeLayout(false);
+            splitContainer5.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)splitContainer5).EndInit();
+            splitContainer5.ResumeLayout(false);
+            splitContainer6.Panel1.ResumeLayout(false);
+            splitContainer6.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)splitContainer6).EndInit();
+            splitContainer6.ResumeLayout(false);
+            splitContainer7.Panel1.ResumeLayout(false);
+            splitContainer7.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)splitContainer7).EndInit();
+            splitContainer7.ResumeLayout(false);
+            ResumeLayout(false);
         }
 
         #endregion
-
-        private SplitContainer splitContainer1;
-        private SplitContainer splitContainer2;
-        private SplitContainer splitContainer3;
         private Button selectFolderButton;
         private GroupBox toGroupbox;
         private GroupBox fromGroupbox;
@@ -273,6 +278,9 @@
         private RadioButton toMKV;
         private RadioButton fromMP3;
         private RadioButton fromMKV;
-        private ProgressBar progressBar;
+        private SplitContainer splitContainer4;
+        private SplitContainer splitContainer5;
+        private SplitContainer splitContainer6;
+        private SplitContainer splitContainer7;
     }
 }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ahmad\\source\\repos\\WindowsExtras\\SoundFilesConverter\\Audio_mkv-mp3_Converter\\SoundFilesConverter.csproj": {}
+    "C:\\Users\\Ahmad\\source\\repos\\Apses98\\Audio_mkv-mp3_Converter\\SoundFilesConverter.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ahmad\\source\\repos\\WindowsExtras\\SoundFilesConverter\\Audio_mkv-mp3_Converter\\SoundFilesConverter.csproj": {
+    "C:\\Users\\Ahmad\\source\\repos\\Apses98\\Audio_mkv-mp3_Converter\\SoundFilesConverter.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ahmad\\source\\repos\\WindowsExtras\\SoundFilesConverter\\Audio_mkv-mp3_Converter\\SoundFilesConverter.csproj",
+        "projectUniqueName": "C:\\Users\\Ahmad\\source\\repos\\Apses98\\Audio_mkv-mp3_Converter\\SoundFilesConverter.csproj",
         "projectName": "SoundFilesConverter",
-        "projectPath": "C:\\Users\\Ahmad\\source\\repos\\WindowsExtras\\SoundFilesConverter\\Audio_mkv-mp3_Converter\\SoundFilesConverter.csproj",
+        "projectPath": "C:\\Users\\Ahmad\\source\\repos\\Apses98\\Audio_mkv-mp3_Converter\\SoundFilesConverter.csproj",
         "packagesPath": "C:\\Users\\Ahmad\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ahmad\\source\\repos\\WindowsExtras\\SoundFilesConverter\\Audio_mkv-mp3_Converter\\obj\\",
+        "outputPath": "C:\\Users\\Ahmad\\source\\repos\\Apses98\\Audio_mkv-mp3_Converter\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -22,16 +22,15 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net6.0-windows"
+          "net8.0-windows"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net6.0-windows7.0": {
-            "targetAlias": "net6.0-windows",
+          "net8.0-windows7.0": {
+            "targetAlias": "net8.0-windows",
             "projectReferences": {}
           }
         },
@@ -39,11 +38,17 @@
           "warnAsError": [
             "NU1605"
           ]
-        }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
-        "net6.0-windows7.0": {
-          "targetAlias": "net6.0-windows",
+        "net8.0-windows7.0": {
+          "targetAlias": "net8.0-windows",
           "imports": [
             "net461",
             "net462",
@@ -63,7 +68,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
