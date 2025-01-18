@@ -54,6 +54,9 @@
             addYoutubeVideoLinkButton = new Button();
             youtubeVideoLinkTextbox = new TextBox();
             splitContainer9 = new SplitContainer();
+            splitContainer11 = new SplitContainer();
+            downloadVideoTypeMp4RadioButton = new RadioButton();
+            downloadVideoTypeMp3RadioButton = new RadioButton();
             youtubeLinksListbox = new ListBox();
             splitContainer10 = new SplitContainer();
             downloadButton = new Button();
@@ -99,6 +102,10 @@
             splitContainer9.Panel1.SuspendLayout();
             splitContainer9.Panel2.SuspendLayout();
             splitContainer9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)splitContainer11).BeginInit();
+            splitContainer11.Panel1.SuspendLayout();
+            splitContainer11.Panel2.SuspendLayout();
+            splitContainer11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer10).BeginInit();
             splitContainer10.Panel1.SuspendLayout();
             splitContainer10.Panel2.SuspendLayout();
@@ -439,7 +446,7 @@
             // 
             // splitContainer9.Panel1
             // 
-            splitContainer9.Panel1.Controls.Add(youtubeLinksListbox);
+            splitContainer9.Panel1.Controls.Add(splitContainer11);
             // 
             // splitContainer9.Panel2
             // 
@@ -448,6 +455,46 @@
             splitContainer9.SplitterDistance = 157;
             splitContainer9.TabIndex = 0;
             // 
+            // splitContainer11
+            // 
+            splitContainer11.Dock = DockStyle.Fill;
+            splitContainer11.Location = new Point(0, 0);
+            splitContainer11.Name = "splitContainer11";
+            // 
+            // splitContainer11.Panel1
+            // 
+            splitContainer11.Panel1.Controls.Add(downloadVideoTypeMp4RadioButton);
+            splitContainer11.Panel1.Controls.Add(downloadVideoTypeMp3RadioButton);
+            // 
+            // splitContainer11.Panel2
+            // 
+            splitContainer11.Panel2.Controls.Add(youtubeLinksListbox);
+            splitContainer11.Size = new Size(823, 157);
+            splitContainer11.SplitterDistance = 274;
+            splitContainer11.TabIndex = 1;
+            // 
+            // downloadVideoTypeMp4RadioButton
+            // 
+            downloadVideoTypeMp4RadioButton.AutoSize = true;
+            downloadVideoTypeMp4RadioButton.Location = new Point(19, 40);
+            downloadVideoTypeMp4RadioButton.Name = "downloadVideoTypeMp4RadioButton";
+            downloadVideoTypeMp4RadioButton.Size = new Size(95, 19);
+            downloadVideoTypeMp4RadioButton.TabIndex = 1;
+            downloadVideoTypeMp4RadioButton.TabStop = true;
+            downloadVideoTypeMp4RadioButton.Text = "mp4 ( video )";
+            downloadVideoTypeMp4RadioButton.UseVisualStyleBackColor = true;
+            // 
+            // downloadVideoTypeMp3RadioButton
+            // 
+            downloadVideoTypeMp3RadioButton.AutoSize = true;
+            downloadVideoTypeMp3RadioButton.Location = new Point(19, 15);
+            downloadVideoTypeMp3RadioButton.Name = "downloadVideoTypeMp3RadioButton";
+            downloadVideoTypeMp3RadioButton.Size = new Size(96, 19);
+            downloadVideoTypeMp3RadioButton.TabIndex = 0;
+            downloadVideoTypeMp3RadioButton.TabStop = true;
+            downloadVideoTypeMp3RadioButton.Text = "mp3 ( audio )";
+            downloadVideoTypeMp3RadioButton.UseVisualStyleBackColor = true;
+            // 
             // youtubeLinksListbox
             // 
             youtubeLinksListbox.Dock = DockStyle.Fill;
@@ -455,7 +502,7 @@
             youtubeLinksListbox.ItemHeight = 15;
             youtubeLinksListbox.Location = new Point(0, 0);
             youtubeLinksListbox.Name = "youtubeLinksListbox";
-            youtubeLinksListbox.Size = new Size(823, 157);
+            youtubeLinksListbox.Size = new Size(545, 157);
             youtubeLinksListbox.TabIndex = 0;
             // 
             // splitContainer10
@@ -483,7 +530,7 @@
             downloadButton.Name = "downloadButton";
             downloadButton.Size = new Size(823, 80);
             downloadButton.TabIndex = 0;
-            downloadButton.Text = "Start Downloading (Only mp3)";
+            downloadButton.Text = "Start Downloading";
             downloadButton.UseVisualStyleBackColor = true;
             downloadButton.Click += downloadButton_Click;
             // 
@@ -553,6 +600,11 @@
             splitContainer9.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer9).EndInit();
             splitContainer9.ResumeLayout(false);
+            splitContainer11.Panel1.ResumeLayout(false);
+            splitContainer11.Panel1.PerformLayout();
+            splitContainer11.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)splitContainer11).EndInit();
+            splitContainer11.ResumeLayout(false);
             splitContainer10.Panel1.ResumeLayout(false);
             splitContainer10.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer10).EndInit();
@@ -591,5 +643,8 @@
         private SplitContainer splitContainer10;
         private Button downloadButton;
         private ProgressBar progressBar1;
+        private SplitContainer splitContainer11;
+        private RadioButton downloadVideoTypeMp3RadioButton;
+        private RadioButton downloadVideoTypeMp4RadioButton;
     }
 }

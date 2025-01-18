@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SoundFilesConverter")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bc4eb169cf6bdd9700f4a43bbd8ddb915f2e5299")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fb24d620a900d65d24d849f2f9273355ea8813ec")]
 [assembly: System.Reflection.AssemblyProductAttribute("SoundFilesConverter")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SoundFilesConverter")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -366,7 +366,7 @@ namespace SoundFilesConverter
                 youtubeLinksListbox.Items.Add(youtubeVideoLinkTextbox.Text);
                 youtubeVideoLinkTextbox.Text = "";
 
-                downloadButton.Text = "Start Downloading (Only mp3)";
+                downloadButton.Text = "Start Downloading";
                 downloadButton.Enabled = true;
             }
         }
@@ -419,20 +419,39 @@ namespace SoundFilesConverter
                 process.OutputDataReceived += LogProcessOutput;
                 process.ErrorDataReceived += LogProcessError;
 
-
-                if (youtubeLinksListbox.Items[i].ToString() != null)
+                if (downloadVideoTypeMp3RadioButton.Checked)
                 {
+                    if (youtubeLinksListbox.Items[i].ToString() != null)
+                    {
 
-                    if (youtubeLinksListbox.Items[i].ToString().StartsWith("https://www.youtube.com/watch?v="))
-                    {
-                        process.StartInfo.Arguments = $"-x --audio-format mp3 --ffmpeg-location \"{ffmpegPath}\" -o \"{outputDirectory}%(title)s.%(ext)s\" {youtubeLinksListbox.Items[i]}";
-                    }
-                    else if (youtubeLinksListbox.Items[i].ToString().StartsWith("https://www.youtube.com/playlist?list="))
-                    {
-                        process.StartInfo.Arguments = $"-x --audio-format mp3 --ffmpeg-location \"{ffmpegPath}\" " +
-                                          $"-o \"{outputDirectory}%(playlist)s/%(playlist_index)03d - %(title)s.%(ext)s\" {youtubeLinksListbox.Items[i]}";
+                        if (youtubeLinksListbox.Items[i].ToString().StartsWith("https://www.youtube.com/watch?v="))
+                        {
+                            process.StartInfo.Arguments = $"-x --audio-format mp3 --ffmpeg-location \"{ffmpegPath}\" -o \"{outputDirectory}%(title)s.%(ext)s\" {youtubeLinksListbox.Items[i]}";
+                        }
+                        else if (youtubeLinksListbox.Items[i].ToString().StartsWith("https://www.youtube.com/playlist?list="))
+                        {
+                            process.StartInfo.Arguments = $"-x --audio-format mp3 --ffmpeg-location \"{ffmpegPath}\" " +
+                                              $"-o \"{outputDirectory}%(playlist)s/%(playlist_index)03d - %(title)s.%(ext)s\" {youtubeLinksListbox.Items[i]}";
+                        }
                     }
                 }
+                else if(downloadVideoTypeMp4RadioButton.Checked)
+                {
+                    if (youtubeLinksListbox.Items[i].ToString() != null)
+                    {
+
+                        if (youtubeLinksListbox.Items[i].ToString().StartsWith("https://www.youtube.com/watch?v="))
+                        {
+                            process.StartInfo.Arguments = $"-f mp4 --ffmpeg-location \"{ffmpegPath}\" -o \"{outputDirectory}%(title)s.%(ext)s\" {youtubeLinksListbox.Items[i]}";
+                        }
+                        else if (youtubeLinksListbox.Items[i].ToString().StartsWith("https://www.youtube.com/playlist?list="))
+                        {
+                            process.StartInfo.Arguments = $"-f mp4 --ffmpeg-location \"{ffmpegPath}\" " +
+                                              $"-o \"{outputDirectory}%(playlist)s/%(playlist_index)03d - %(title)s.%(ext)s\" {youtubeLinksListbox.Items[i]}";
+                        }
+                    }
+                }
+                
                 
 
                 process.Start();
