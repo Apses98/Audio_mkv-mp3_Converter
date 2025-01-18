@@ -510,7 +510,8 @@ namespace SoundFilesConverter
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            foreach (var process in runningProcesses)
+            var processesToKill = new List<Process>(runningProcesses);
+            foreach (var process in processesToKill)
             {
                 try
                 {
@@ -530,7 +531,7 @@ namespace SoundFilesConverter
                 }
             }
 
-            runningProcesses.Clear();
+            processesToKill.Clear();
         }
     }
 }
