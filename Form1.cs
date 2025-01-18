@@ -351,6 +351,7 @@ namespace SoundFilesConverter
             else
             {
                 downloadPathLabel.Text = dialog.SelectedPath;
+                downloadPathLabel.Text += "\\";
             }
         }
 
@@ -386,8 +387,12 @@ namespace SoundFilesConverter
 
         private void downloadButton_Click(object sender, EventArgs e)
         {
-            downloadButton.Text = "Downloading...";
-            downloadButton.Enabled = false;
+            if(downloadVideoTypeMp3RadioButton.Checked || downloadVideoTypeMp4RadioButton.Checked)
+            {
+                downloadButton.Text = "Downloading...";
+                downloadButton.Enabled = false;
+            }
+            
 
             string ytDlpPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "yt-dlp\\yt-dlp.exe");
             
@@ -402,9 +407,11 @@ namespace SoundFilesConverter
             string outputDirectory = downloadPathLabel.Text;
 
 
-           
 
-            
+
+
+
+
 
             for (int i = youtubeLinksListbox.Items.Count - 1; i >= 0; i--)
             {
@@ -450,6 +457,11 @@ namespace SoundFilesConverter
                                               $"-o \"{outputDirectory}%(playlist)s/%(playlist_index)03d - %(title)s.%(ext)s\" {youtubeLinksListbox.Items[i]}";
                         }
                     }
+                }
+                else
+                {
+                    MessageBox.Show("Please select either mp3 or mp4!");
+                    return;
                 }
                 
                 
