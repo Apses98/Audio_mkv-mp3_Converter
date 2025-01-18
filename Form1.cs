@@ -12,6 +12,7 @@ namespace SoundFilesConverter
     {
         List<string> files = new List<string>();
         FolderBrowserDialog dialog = new FolderBrowserDialog();
+        private List<Process> runningProcesses = new List<Process>();
         bool Abort = false;
         public Form1()
         {
@@ -28,7 +29,7 @@ namespace SoundFilesConverter
 
         private void selectDefaultDownloadPath()
         {
-            
+
             downloadPathLabel.Text = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "downloaded\\");
             if (!Directory.Exists(downloadPathLabel.Text))
             {
@@ -324,7 +325,12 @@ namespace SoundFilesConverter
 
                 // Start FFmpeg process
                 process.Start();
+                runningProcesses.Add(process);
                 process.WaitForExit();
+
+                process.Dispose();
+
+                runningProcesses.Remove(process);
                 updateProgressBar(i);
                 infoListBox.Items.Add($"Done: {outputFile.Split("\\").Last()}");
             }
@@ -387,22 +393,22 @@ namespace SoundFilesConverter
 
         private void downloadButton_Click(object sender, EventArgs e)
         {
-            if(downloadVideoTypeMp3RadioButton.Checked || downloadVideoTypeMp4RadioButton.Checked)
+            if (downloadVideoTypeMp3RadioButton.Checked || downloadVideoTypeMp4RadioButton.Checked)
             {
                 downloadButton.Text = "Downloading...";
                 downloadButton.Enabled = false;
             }
-            
+
 
             string ytDlpPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "yt-dlp\\yt-dlp.exe");
-            
+
             if (!File.Exists(ytDlpPath))
             {
                 MessageBox.Show("Missing some important tools!\nMight still be downloading!!\nTry again in a minute");
                 return;
             }
 
-            
+
             string ffmpegPath = "ffmpeg\\ffmpeg-master-latest-win64-lgpl-shared\\bin";
             string outputDirectory = downloadPathLabel.Text;
 
@@ -442,7 +448,7 @@ namespace SoundFilesConverter
                         }
                     }
                 }
-                else if(downloadVideoTypeMp4RadioButton.Checked)
+                else if (downloadVideoTypeMp4RadioButton.Checked)
                 {
                     if (youtubeLinksListbox.Items[i].ToString() != null)
                     {
@@ -463,22 +469,26 @@ namespace SoundFilesConverter
                     MessageBox.Show("Please select either mp3 or mp4!");
                     return;
                 }
-                
-                
+
+
 
                 process.Start();
 
+                runningProcesses.Add(process);
+
                 process.BeginOutputReadLine();
-                process.BeginErrorReadLine();   
+                process.BeginErrorReadLine();
 
                 process.WaitForExit();
 
+                process.Dispose();
+                runningProcesses.Remove(process);
                 youtubeLinksListbox.Items.RemoveAt(i);
             }
 
 
             downloadButton.Text = "Done !";
-            
+
 
         }
 
@@ -498,5 +508,29 @@ namespace SoundFilesConverter
             }
         }
 
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            foreach (var process in runningProcesses)
+            {
+                try
+                {
+                    if (!process.HasExited)
+                    {
+                        process.Kill(); 
+                        process.WaitForExit(); 
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error terminating process: {ex.Message}");
+                }
+                finally
+                {
+                    process.Dispose();
+                }
+            }
+
+            runningProcesses.Clear();
+        }
     }
 }

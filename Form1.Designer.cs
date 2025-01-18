@@ -554,6 +554,7 @@
             MinimumSize = new Size(853, 525);
             Name = "Form1";
             Text = "Converter";
+            FormClosing += Form1_FormClosing;
             Load += prog_init;
             toGroupbox.ResumeLayout(false);
             toGroupbox.PerformLayout();
