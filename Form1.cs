@@ -28,7 +28,12 @@ namespace SoundFilesConverter
 
         private void selectDefaultDownloadPath()
         {
-            downloadPathLabel.Text = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "downloaded");
+            
+            downloadPathLabel.Text = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "downloaded\\");
+            if (!Directory.Exists(downloadPathLabel.Text))
+            {
+                Directory.CreateDirectory(downloadPathLabel.Text);
+            }
         }
 
         static async Task check_ffmpeg()
@@ -145,6 +150,8 @@ namespace SoundFilesConverter
         private void selectFolderButton_Click(object sender, EventArgs e)
         {
             selectFolder();
+            convertButton.Text = "Convert";
+            convertButton.Enabled = true;
         }
 
 
@@ -282,6 +289,8 @@ namespace SoundFilesConverter
             // Path to the FFmpeg executable
             string ffmpegPath = @"ffmpeg\ffmpeg-master-latest-win64-lgpl-shared\bin\ffmpeg.exe";
 
+            convertButton.Text = "Converting...";
+            convertButton.Enabled = false;
 
 
             // Set up FFmpeg process
@@ -319,6 +328,7 @@ namespace SoundFilesConverter
                 updateProgressBar(i);
                 infoListBox.Items.Add($"Done: {outputFile.Split("\\").Last()}");
             }
+            convertButton.Text = "Done!!";
             updateProgressBar(0);
             infoListBox.Items.Add($"Done!!!");
         }
@@ -348,17 +358,22 @@ namespace SoundFilesConverter
         {
             if (!check_youtubeLink())
             {
-                MessageBox.Show("We expect the youtube url to be in the following format:\nhttps://www.youtube.com/watch?v=video_ID\nor\nwww.youtube.com/watch?v=video_ID");
-            }else
+                MessageBox.Show("We expect the youtube url to be in the following format:\nhttps://www.youtube.com/watch?v=video_ID");
+                youtubeVideoLinkTextbox.Text = "";
+            }
+            else
             {
                 youtubeLinksListbox.Items.Add(youtubeVideoLinkTextbox.Text);
                 youtubeVideoLinkTextbox.Text = "";
+
+                downloadButton.Text = "Start Downloading (Only mp3)";
+                downloadButton.Enabled = true;
             }
         }
 
         private bool check_youtubeLink()
         {
-            if(youtubeVideoLinkTextbox.Text.StartsWith("www.youtube.com/watch?v=") || youtubeVideoLinkTextbox.Text.StartsWith("https://www.youtube.com/watch?v="))
+            if (youtubeVideoLinkTextbox.Text.StartsWith("https://www.youtube.com/watch?v=") || youtubeVideoLinkTextbox.Text.StartsWith("https://www.youtube.com/playlist?list="))
             {
                 return true;
             }
@@ -366,7 +381,91 @@ namespace SoundFilesConverter
             {
                 return false;
             }
-            
+
         }
+
+        private void downloadButton_Click(object sender, EventArgs e)
+        {
+            downloadButton.Text = "Downloading...";
+            downloadButton.Enabled = false;
+
+            string ytDlpPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "yt-dlp\\yt-dlp.exe");
+            
+            if (!File.Exists(ytDlpPath))
+            {
+                MessageBox.Show("Missing some important tools!\nMight still be downloading!!\nTry again in a minute");
+                return;
+            }
+
+            
+            string ffmpegPath = "ffmpeg\\ffmpeg-master-latest-win64-lgpl-shared\\bin";
+            string outputDirectory = downloadPathLabel.Text;
+
+
+           
+
+            
+
+            for (int i = youtubeLinksListbox.Items.Count - 1; i >= 0; i--)
+            {
+
+                Process process = new Process();
+                process.StartInfo.FileName = ytDlpPath;
+                process.StartInfo.RedirectStandardOutput = true;
+                process.StartInfo.RedirectStandardError = true;
+                process.StartInfo.UseShellExecute = false;
+                process.StartInfo.CreateNoWindow = true;
+
+                process.OutputDataReceived += LogProcessOutput;
+                process.ErrorDataReceived += LogProcessError;
+
+
+                if (youtubeLinksListbox.Items[i].ToString() != null)
+                {
+
+                    if (youtubeLinksListbox.Items[i].ToString().StartsWith("https://www.youtube.com/watch?v="))
+                    {
+                        process.StartInfo.Arguments = $"-x --audio-format mp3 --ffmpeg-location \"{ffmpegPath}\" -o \"{outputDirectory}%(title)s.%(ext)s\" {youtubeLinksListbox.Items[i]}";
+                    }
+                    else if (youtubeLinksListbox.Items[i].ToString().StartsWith("https://www.youtube.com/playlist?list="))
+                    {
+                        process.StartInfo.Arguments = $"-x --audio-format mp3 --ffmpeg-location \"{ffmpegPath}\" " +
+                                          $"-o \"{outputDirectory}%(playlist)s/%(playlist_index)03d - %(title)s.%(ext)s\" {youtubeLinksListbox.Items[i]}";
+                    }
+                }
+                
+
+                process.Start();
+
+                process.BeginOutputReadLine();
+                process.BeginErrorReadLine();   
+
+                process.WaitForExit();
+
+                youtubeLinksListbox.Items.RemoveAt(i);
+            }
+
+
+            downloadButton.Text = "Done !";
+            
+
+        }
+
+        void LogProcessOutput(object sender, DataReceivedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(e.Data))
+            {
+                Console.WriteLine(e.Data);
+            }
+        }
+
+        void LogProcessError(object sender, DataReceivedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(e.Data))
+            {
+                Console.WriteLine($"Error: {e.Data}");
+            }
+        }
+
     }
 }

@@ -483,8 +483,9 @@
             downloadButton.Name = "downloadButton";
             downloadButton.Size = new Size(823, 80);
             downloadButton.TabIndex = 0;
-            downloadButton.Text = "Start Downloading";
+            downloadButton.Text = "Start Downloading (Only mp3)";
             downloadButton.UseVisualStyleBackColor = true;
+            downloadButton.Click += downloadButton_Click;
             // 
             // progressBar1
             // 
